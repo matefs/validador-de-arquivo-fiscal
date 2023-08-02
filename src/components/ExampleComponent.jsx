@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const ExampleComponent = () => {
-  const instrucaoDosRegistrosInicial = [
+
+  const [instrucoesDosRegistros, setInstrucoesDosRegistros] = useState([
     [
       { tipo: 'numérico', tamanho: 2, conteudo: 'Tipo do registro' },
       { tipo: 'texto', tamanho: 9, conteudo: 'Identificador do REP' },
@@ -12,11 +13,7 @@ const ExampleComponent = () => {
       { tipo: 'numérico', tamanho: 2, conteudo: 'Tipo do registro' },
       { tipo: 'texto', tamanho: 17, conteudo: 'Numero fabricacao' },
     ],
-  ];
-
-  const [instrucoesDosRegistros, setInstrucoesDosRegistros] = useState(
-    instrucaoDosRegistrosInicial
-  );
+  ]);
 
   // Função para adicionar uma nova instrução de registro para um item específico
   const adicionarRegistro = (indiceItem, novoRegistro) => {
