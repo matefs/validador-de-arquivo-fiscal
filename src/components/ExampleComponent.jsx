@@ -14,6 +14,11 @@ const ExampleComponent = ({ uploadedTextFile }) => {
     ],
   ]);
 
+  // Função para adicionar uma lista vazia
+  const adicionarListaVazia = () => {
+    setInstrucoesDosRegistros((prevInstrucoes) => [...prevInstrucoes, []]);
+  };
+
   // Função para adicionar uma nova instrução de registro para um item específico
   const adicionarRegistro = (indiceItem, novoRegistro) => {
     const novasInstrucoes = [...instrucoesDosRegistros];
@@ -59,6 +64,7 @@ const ExampleComponent = ({ uploadedTextFile }) => {
           </button>
         </div>
       ))}
+      <button onClick={() => adicionarListaVazia()}> adicionar linha </button>
     </div>
   );
 };
