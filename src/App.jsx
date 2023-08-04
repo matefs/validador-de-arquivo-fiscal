@@ -4,11 +4,11 @@ import ExampleComponent from './components/ExampleComponent';
 import UploadForm from './components/UploadForm';
 
 function App() {
-  const [uploadedTextFile, setUploadedTextFile] = useState();
+  const [uploadedTextFile, setUploadedTextFile] = useState('  uploadedTextFile');
   return (
     <div>
-      <ExampleComponent />
-      <UploadForm />
+      <ExampleComponent uploadedTextFile={uploadedTextFile} />
+      <UploadForm uploadedTextFile={uploadedTextFile} />
     </div>
   );
 }

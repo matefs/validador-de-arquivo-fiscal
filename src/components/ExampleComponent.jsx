@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const ExampleComponent = () => {
-
+const ExampleComponent = ({ uploadedTextFile }) => {
   const [instrucoesDosRegistros, setInstrucoesDosRegistros] = useState([
     [
       { tipo: 'numérico', tamanho: 2, conteudo: 'Tipo do registro' },
