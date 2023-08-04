@@ -4,6 +4,7 @@ import ExampleComponent from './components/ExampleComponent';
 import UploadForm from './components/UploadForm';
 
 function App() {
+  const [uploadedTextFile, setUploadedTextFile] = useState();
   return (
     <div>
       <ExampleComponent />
