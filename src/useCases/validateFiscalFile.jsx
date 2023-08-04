@@ -1,4 +1,4 @@
-export function validateFiscalFile({}) {
+export function validateFiscalFile({ arquivoAFDT }) {
   // Obter as linhas do arquivo
   const linhas = arquivoAFDT.split('\n');
 
@@ -8,5 +8,5 @@ export function validateFiscalFile({}) {
   // Todas linhas entre a primeira e a última linha
   const linhasIntermediarias = linhas.slice(1, -1);
 
-  return <> </>;
+  return null;
 }
