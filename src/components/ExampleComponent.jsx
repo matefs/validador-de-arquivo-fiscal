@@ -64,7 +64,10 @@ const ExampleComponent = ({ uploadedTextFile }) => {
           </button>
         </div>
       ))}
-      <button onClick={() => adicionarListaVazia()}> adicionar linha </button>
+      <button onClick={() => adicionarListaVazia()}>
+        {' '}
+        Adicionar nova linha para instrucao{' '}
+      </button>
     </div>
   );
 };
