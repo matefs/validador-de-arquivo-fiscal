@@ -16,7 +16,12 @@ export default function UploadForm({ uploadedTextFile, setUploadedTextFile }) {
 
   return (
     <>
-      <input type="file" id="inputArquivo" onChange={carregarArquivoTexto} />
+      <input
+        type="file"
+        id="inputArquivo"
+        onChange={carregarArquivoTexto}
+        style={{ padding: '3%' }}
+      />
     </>
   );
 }
