@@ -13,7 +13,10 @@ function ExampleComponent({ uploadedTextFile = '' }) {
     {
       startLine: 2,
       endLine: 3,
-      fields: [{ name: 'Another Field', startPos: 8, endPos: 28 }],
+      fields: [
+        { name: 'Campo 1 ao 8', startPos: 1, endPos: 8 },
+        { name: 'Another Field', startPos: 8, endPos: 28 },
+      ],
     },
   ]);
 
