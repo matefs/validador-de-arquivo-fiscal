@@ -51,71 +51,69 @@ function ExampleComponent({ uploadedTextFile = '' }) {
 
     setExtractedData(extractedData);
 
-
     // You can also update state or perform other actions based on the extractedData here
   }, [lineInstructions, uploadedTextFile]);
 
- 
-
-    // Organizar os campos reunidos conforme as instruções
-    const groupedFields = {}; // Adicione esta linha
-    extractedData.forEach((fields) => {
-      fields.forEach((field) => {
-        const instructionName = field.name;
-        if (!groupedFields[instructionName]) {
-          groupedFields[instructionName] = [];
-        }
-        groupedFields[instructionName].push(field.value);
-      });
+  // Organizar os campos reunidos conforme as instruções
+  const groupedFields = {}; // Adicione esta linha
+  extractedData.forEach((fields) => {
+    fields.forEach((field) => {
+      const instructionName = field.name;
+      if (!groupedFields[instructionName]) {
+        groupedFields[instructionName] = [];
+      }
+      groupedFields[instructionName].push(field.value);
     });
+  });
 
-    return (
+  return (
+    <div>
+      {/* Exibir campos reunidos por instrução em uma tabela */}
       <div>
-        {/* Exibir campos reunidos por instrução em uma tabela */}
-        <div>
-          <h2>Campos Reunidos por Instrução</h2>
-          {uploadedTextFile !== '' ? (
-            <table>
-              <thead>
-                <tr>
-                  <th>Instrução</th>
-                  <th>Campo</th>
-                  <th>Valores</th>
+        <h2>Campos Reunidos por Instrução</h2>
+        {uploadedTextFile !== '' ? (
+          <table border={1}>
+            <thead>
+              <tr>
+                <th>Instrução</th>
+                <th>Campo</th>
+                <th>Valores</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lineInstructions.map((instruction, index) => (
+                <tr key={index}>
+                  <td>
+                    <strong>
+                      Linhas {instruction.startLine}-{instruction.endLine}
+                    </strong>
+                  </td>
+                  <td>
+                    {instruction.fields.map((field, fieldIndex) => (
+                      <div key={fieldIndex}>{field.name}</div>
+                    ))}
+                  </td>
+                  <td>
+                    {instruction.fields.map((field, fieldIndex) => (
+                      <div key={fieldIndex}>
+                        {groupedFields[field.name]
+                          ? groupedFields[field.name].join(', ')
+                          : 'N/A'}
+                      </div>
+                    ))}
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {lineInstructions.map((instruction, index) => (
-                  <tr key={index}>
-                    <td>
-                      <strong>Linhas {instruction.startLine}-{instruction.endLine}</strong>
-                    </td>
-                    <td>
-                      {instruction.fields.map((field, fieldIndex) => (
-                        <div key={fieldIndex}>{field.name}</div>
-                      ))}
-                    </td>
-                    <td>
-                      {instruction.fields.map((field, fieldIndex) => (
-                        <div key={fieldIndex}>
-                          {groupedFields[field.name]
-                            ? groupedFields[field.name].join(', ')
-                            : 'N/A'}
-                        </div>
-                      ))}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            ''
-          )}
-        </div>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          ''
+        )}
       </div>
-    );
-    
-// ...
+    </div>
+  );
 
+  // ...
 }
 
 export default ExampleComponent;
