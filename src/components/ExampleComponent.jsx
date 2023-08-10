@@ -6,7 +6,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
       startLine: 1,
       endLine: 1,
       fields: [
-        { name: 'Company Name', startPos: 7, endPos: 27 },
+        { name: 'Company Name', startPos: 1, endPos: 27 },
         { name: 'Fiscal Year', startPos: 28, endPos: 31 },
       ],
     },
@@ -35,7 +35,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
             const fieldValue = line.slice(field.startPos - 1, field.endPos);
             extractedFields.push({
               name: field.name,
-              value: fieldValue.trim(),
+              value: fieldValue,
             });
           });
         }
@@ -44,7 +44,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
     }
 
     // Process the tax file data
-    const lines = uploadedTextFile.trim().split('\n');
+    const lines = uploadedTextFile.split('\n');
     const extractedData = lines.map((line, index) => {
       return extractFieldsFromLine(index + 1, line);
     });
@@ -77,32 +77,27 @@ function ExampleComponent({ uploadedTextFile = '' }) {
               <tr>
                 <th>Instrução</th>
                 <th>Campo</th>
-                <th>Valores</th>
               </tr>
             </thead>
             <tbody>
               {lineInstructions.map((instruction, index) => (
-                <tr key={index}>
-                  <td>
-                    <strong>
-                      Linhas {instruction.startLine}-{instruction.endLine}
-                    </strong>
-                  </td>
-                  <td>
-                    {instruction.fields.map((field, fieldIndex) => (
-                      <div key={fieldIndex}>{field.name}</div>
-                    ))}
-                  </td>
-                  <td>
-                    {instruction.fields.map((field, fieldIndex) => (
-                      <div key={fieldIndex}>
+                <React.Fragment key={index}>
+                  <tr>
+                    <td colSpan="2">
+                      <strong>Linhas {instruction.startLine}-{instruction.endLine}</strong>
+                    </td>
+                  </tr>
+                  {instruction.fields.map((field, fieldIndex) => (
+                    <tr key={fieldIndex}>
+                      <td>{field.name}</td>
+                      <td>
                         {groupedFields[field.name]
                           ? groupedFields[field.name].join(', ')
                           : 'N/A'}
-                      </div>
-                    ))}
-                  </td>
-                </tr>
+                      </td>
+                    </tr>
+                  ))}
+                </React.Fragment>
               ))}
             </tbody>
           </table>
@@ -112,6 +107,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
       </div>
     </div>
   );
+  
 
   // ...
 }
