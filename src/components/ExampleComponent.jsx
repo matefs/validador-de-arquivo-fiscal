@@ -1,75 +1,71 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const ExampleComponent = ({ uploadedTextFile }) => {
-  const [instrucoesDosRegistros, setInstrucoesDosRegistros] = useState([
-    [
-      { tipo: 'numérico', tamanho: 2, conteudo: 'Tipo do registro' },
-      { tipo: 'texto', tamanho: 9, conteudo: 'Identificador do REP' },
-      { tipo: 'texto', tamanho: 1, conteudo: 'Tipo do REP' },
-      { tipo: 'texto', tamanho: 17, conteudo: 'Numero fabricacao' },
-    ],
-    [
-      { tipo: 'numérico', tamanho: 2, conteudo: 'Tipo do registro' },
-      { tipo: 'texto', tamanho: 17, conteudo: 'Numero fabricacao' },
-    ],
+ 
+
+function ExampleComponent({uploadedTextFile}) {
+  const [lineInstructions, setLineInstructions] = useState([
+    {
+      startLine: 1,
+      endLine: 1,
+      fields: [
+        { name: 'Company Name', startPos: 7, endPos: 27 },
+        { name: 'Fiscal Year', startPos: 28, endPos: 31 },
+      ],
+    },
+    {
+      startLine: 2,
+      endLine: 3,
+      fields: [
+        { name: 'Another Field', startPos: 8, endPos: 28 },
+      ],
+    },
   ]);
 
-  // Função para adicionar uma lista vazia
-  const adicionarListaVazia = () => {
-    setInstrucoesDosRegistros((prevInstrucoes) => [...prevInstrucoes, []]);
-  };
+  const [extractedData, setExtractedData] = useState([]);
 
-  // Função para adicionar uma nova instrução de registro para um item específico
-  const adicionarRegistro = (indiceItem, novoRegistro) => {
-    const novasInstrucoes = [...instrucoesDosRegistros];
-    novasInstrucoes[indiceItem] = [
-      ...novasInstrucoes[indiceItem],
-      novoRegistro,
-    ];
-    setInstrucoesDosRegistros(novasInstrucoes);
-  };
+  useEffect(() => {
+ 
+      
+    // Function to extract fields based on line instructions
+    function extractFieldsFromLine(lineNumber, line) {
+      const extractedFields = [];
+      lineInstructions.forEach(instruction => {
+        if (lineNumber >= instruction.startLine && lineNumber <= instruction.endLine) {
+          instruction.fields.forEach(field => {
+            const fieldValue = line.slice(field.startPos - 1, field.endPos);
+            extractedFields.push({ name: field.name, value: fieldValue.trim() });
+          });
+        }
+      });
+      return extractedFields;
+    }
 
-  // Função para excluir uma instrução de registro para um item específico
-  const excluirRegistro = (indiceItem, indiceRegistro) => {
-    const novasInstrucoes = [...instrucoesDosRegistros];
-    novasInstrucoes[indiceItem].splice(indiceRegistro, 1);
-    setInstrucoesDosRegistros(novasInstrucoes);
-  };
+    // Process the tax file data
+    const lines = uploadedTextFile.trim().split('\n');
+    const extractedData = lines.map((line, index) => {
+      return extractFieldsFromLine(index + 1, line);
+    });
+
+    setExtractedData(extractedData);
+
+     
+
+    // You can also update state or perform other actions based on the extractedData here
+  }, [lineInstructions,uploadedTextFile]);
 
   return (
     <div>
-      {/* Aqui você pode exibir as instruções de registro em algum componente */}
-      {instrucoesDosRegistros.map((item, indiceItem) => (
-        <div key={indiceItem}>
-          {item.map((registro, indiceRegistro) => (
-            <div key={`${indiceItem}-${indiceRegistro}`}>
-              <span>{`Tipo: ${registro.tipo}, Tamanho: ${registro.tamanho}, Conteúdo: ${registro.conteudo}`}</span>
-              <button
-                onClick={() => excluirRegistro(indiceItem, indiceRegistro)}
-              >
-                Excluir
-              </button>
-            </div>
+      {extractedData.map((data, index) => (
+        <div key={index}>
+          {data.map(field => (
+            <p key={field.name}>
+              {field.name}: {field.value}
+            </p>
           ))}
-          <button
-            onClick={() =>
-              adicionarRegistro(indiceItem, {
-                tipo: 'texto',
-                tamanho: 10,
-                conteudo: 'Nova instrução de registro',
-              })
-            }
-          >
-            Adicionar Nova Instrução
-          </button>
         </div>
       ))}
-      <button onClick={() => adicionarListaVazia()}>
-        {' '}
-        Adicionar nova linha para instrucao{' '}
-      </button>
     </div>
   );
-};
+}
 
 export default ExampleComponent;
