@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
- 
-
-function ExampleComponent({uploadedTextFile}) {
+function ExampleComponent({ uploadedTextFile = '' }) {
   const [lineInstructions, setLineInstructions] = useState([
     {
       startLine: 1,
@@ -15,25 +13,27 @@ function ExampleComponent({uploadedTextFile}) {
     {
       startLine: 2,
       endLine: 3,
-      fields: [
-        { name: 'Another Field', startPos: 8, endPos: 28 },
-      ],
+      fields: [{ name: 'Another Field', startPos: 8, endPos: 28 }],
     },
   ]);
 
   const [extractedData, setExtractedData] = useState([]);
 
   useEffect(() => {
- 
-      
     // Function to extract fields based on line instructions
     function extractFieldsFromLine(lineNumber, line) {
       const extractedFields = [];
-      lineInstructions.forEach(instruction => {
-        if (lineNumber >= instruction.startLine && lineNumber <= instruction.endLine) {
-          instruction.fields.forEach(field => {
+      lineInstructions.forEach((instruction) => {
+        if (
+          lineNumber >= instruction.startLine &&
+          lineNumber <= instruction.endLine
+        ) {
+          instruction.fields.forEach((field) => {
             const fieldValue = line.slice(field.startPos - 1, field.endPos);
-            extractedFields.push({ name: field.name, value: fieldValue.trim() });
+            extractedFields.push({
+              name: field.name,
+              value: fieldValue.trim(),
+            });
           });
         }
       });
@@ -48,22 +48,22 @@ function ExampleComponent({uploadedTextFile}) {
 
     setExtractedData(extractedData);
 
-     
-
     // You can also update state or perform other actions based on the extractedData here
-  }, [lineInstructions,uploadedTextFile]);
+  }, [lineInstructions, uploadedTextFile]);
 
   return (
     <div>
-      {extractedData.map((data, index) => (
-        <div key={index}>
-          {data.map(field => (
-            <p key={field.name}>
-              {field.name}: {field.value}
-            </p>
-          ))}
-        </div>
-      ))}
+      {uploadedTextFile !== ''
+        ? extractedData.map((data, index) => (
+            <div key={index}>
+              {data.map((field) => (
+                <p key={field.name}>
+                  {field.name}: {field.value}
+                </p>
+              ))}
+            </div>
+          ))
+        : ''}
     </div>
   );
 }

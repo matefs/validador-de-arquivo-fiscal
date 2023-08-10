@@ -9,7 +9,7 @@ function App() {
     <div>
       <ExampleComponent uploadedTextFile={uploadedTextFile} />
       <br />
-      {uploadedTextFile}
+      {}
       <UploadForm
         uploadedTextFile={uploadedTextFile}
         setUploadedTextFile={setUploadedTextFile}
