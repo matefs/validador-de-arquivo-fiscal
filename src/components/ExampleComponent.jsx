@@ -99,7 +99,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                       </td>
                       <td>
                         {groupedFields[field.name]
-                          ? groupedFields[field.name].join(', ')
+                          ? groupedFields[field.name].join(' ; ')
                           : 'N/A'}
                       </td>
                     </tr>
