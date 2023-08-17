@@ -70,7 +70,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
       <div>
         <h2>Campos Reunidos por Instrução</h2>
         {uploadedTextFile !== '' ? (
-          <table border={1}>
+          <table border={0}>
             <thead>
               <tr>
                 <th>Instrução</th>
