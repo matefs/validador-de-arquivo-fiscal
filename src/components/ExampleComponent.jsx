@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ExampleComponent.css';
 
 function ExampleComponent({ uploadedTextFile = '' }) {
   const [lineInstructions, setLineInstructions] = useState([
@@ -50,12 +51,10 @@ function ExampleComponent({ uploadedTextFile = '' }) {
     });
 
     setExtractedData(extractedData);
-
-    // You can also update state or perform other actions based on the extractedData here
   }, [lineInstructions, uploadedTextFile]);
 
-  // Organizar os campos reunidos conforme as instruções
-  const groupedFields = {}; // Adicione esta linha
+  // Create an object to hold grouped fields
+  const groupedFields = {};
   extractedData.forEach((fields) => {
     fields.forEach((field) => {
       const instructionName = field.name;
@@ -68,7 +67,6 @@ function ExampleComponent({ uploadedTextFile = '' }) {
 
   return (
     <div>
-      {/* Exibir campos reunidos por instrução em uma tabela */}
       <div>
         <h2>Campos Reunidos por Instrução</h2>
         {uploadedTextFile !== '' ? (
@@ -76,6 +74,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
             <thead>
               <tr>
                 <th>Instrução</th>
+                <th>Posicões</th>
                 <th>Campo</th>
               </tr>
             </thead>
@@ -83,13 +82,20 @@ function ExampleComponent({ uploadedTextFile = '' }) {
               {lineInstructions.map((instruction, index) => (
                 <React.Fragment key={index}>
                   <tr>
-                    <td colSpan="2">
-                      <strong>Linhas {instruction.startLine}-{instruction.endLine}</strong>
+                    <td
+                      colSpan={3}
+                    >
+                      <strong>
+                        Linhas {instruction.startLine}-{instruction.endLine}
+                      </strong>
                     </td>
                   </tr>
                   {instruction.fields.map((field, fieldIndex) => (
                     <tr key={fieldIndex}>
                       <td>{field.name}</td>
+                      <td>
+                        {field.startPos} até {field.endPos}
+                      </td>
                       <td>
                         {groupedFields[field.name]
                           ? groupedFields[field.name].join(', ')
@@ -107,9 +113,6 @@ function ExampleComponent({ uploadedTextFile = '' }) {
       </div>
     </div>
   );
-  
-
-  // ...
 }
 
 export default ExampleComponent;
