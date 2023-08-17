@@ -84,6 +84,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                   <tr>
                     <td
                       colSpan={3}
+                      style={{ backgroundColor: 'rgba(255,255,255,.1)' }}
                     >
                       <strong>
                         Linhas {instruction.startLine}-{instruction.endLine}
