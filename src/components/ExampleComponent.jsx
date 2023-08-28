@@ -98,15 +98,15 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                         {field.startPos} até {field.endPos}
                       </td>
                       <td
-  style={{
-    backgroundColor: 'rgba(255, 255, 255, 0.01)',
-    display: 'flex',
-    flexDirection: 'column',
-    marginTop: '1%',
-    borderCollapse: 'separate',
-    borderSpacing: 0,
-  }}
->
+                        style={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.00)',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          marginTop: '2%',
+                          borderCollapse: 'separate',
+                          borderSpacing: 0,
+                        }}
+                      >
                         {groupedFields[field.name] ? (
                           <span>
                             {groupedFields[field.name].map((value, index) => (
@@ -117,7 +117,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                                     Math.random() * 100
                                   )}, ${
                                     index * Math.floor(Math.random() * 100)
-                                  }, 255,0.1)`, // Adjust color generation as needed
+                                  }, 255,0.06)`, // Adjust color generation as needed
                                   margin: '.2em .5em', // Adding some spacing between items
                                   padding: '2px 5px',
                                   display: 'inline-block',
