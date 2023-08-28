@@ -121,6 +121,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                                   margin: '.2em .5em', // Adding some spacing between items
                                   padding: '2px 5px',
                                   display: 'inline-block',
+                                  borderRadius: '10px'
                                 }}
                               >
                                 {value}
