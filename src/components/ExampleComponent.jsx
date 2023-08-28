@@ -13,7 +13,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
     },
     {
       startLine: 2,
-      endLine: 3,
+      endLine: 10,
       fields: [
         { name: 'Campo 1 ao 8', startPos: 1, endPos: 8 },
         { name: 'Another Field', startPos: 8, endPos: 28 },
@@ -93,14 +93,43 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                   </tr>
                   {instruction.fields.map((field, fieldIndex) => (
                     <tr key={fieldIndex}>
-                      <td>{field.name}</td>
+                      <td style={{ padding: '20px' }}>{field.name}</td>
                       <td>
                         {field.startPos} até {field.endPos}
                       </td>
-                      <td>
-                        {groupedFields[field.name]
-                          ? groupedFields[field.name].join(' ; ')
-                          : 'N/A'}
+                      <td
+  style={{
+    backgroundColor: 'rgba(255, 255, 255, 0.01)',
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: '1%',
+    borderCollapse: 'separate',
+    borderSpacing: 0,
+  }}
+>
+                        {groupedFields[field.name] ? (
+                          <span>
+                            {groupedFields[field.name].map((value, index) => (
+                              <span
+                                key={index}
+                                style={{
+                                  backgroundColor: `rgba(${Math.floor(
+                                    Math.random() * 100
+                                  )}, ${
+                                    index * Math.floor(Math.random() * 100)
+                                  }, 255,0.1)`, // Adjust color generation as needed
+                                  margin: '.2em .5em', // Adding some spacing between items
+                                  padding: '2px 5px',
+                                  display: 'inline-block',
+                                }}
+                              >
+                                {value}
+                              </span>
+                            ))}
+                          </span>
+                        ) : (
+                          'N/A'
+                        )}
                       </td>
                     </tr>
                   ))}
