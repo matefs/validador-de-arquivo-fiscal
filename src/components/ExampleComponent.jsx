@@ -122,7 +122,8 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                                   padding: '2px 5px',
                                   display: 'inline-block',
                                   borderRadius: '10px'
-                                }}
+                                }} 
+                                title={`Numero sequencial: ${index}` }
                               >
                                 {value}
                               </span>
