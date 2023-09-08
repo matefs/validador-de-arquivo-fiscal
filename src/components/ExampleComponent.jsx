@@ -68,7 +68,7 @@ function ExampleComponent({ uploadedTextFile = '' }) {
   return (
     <div>
       <div>
-        <h2>Campos Reunidos por Instrução</h2>
+        <h2>Verifique a Validade dos Campos no Arquivo Consolidado por Instruções</h2>
         {uploadedTextFile !== '' ? (
           <table border={0}>
             <thead>
