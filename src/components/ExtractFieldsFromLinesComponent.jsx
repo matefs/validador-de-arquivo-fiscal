@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './ExampleComponent.css';
 
-function ExampleComponent({ uploadedTextFile = '' }) {
+function ExtractFieldsFromLinesComponent({ uploadedTextFile = '' }) {
   const [lineInstructions, setLineInstructions] = useState([
     {
       startLine: 1,
@@ -68,7 +67,9 @@ function ExampleComponent({ uploadedTextFile = '' }) {
   return (
     <div>
       <div>
-        <h2>Verifique a Validade dos Campos no Arquivo Consolidado por Instruções</h2>
+        <h2>
+          Verifique a Validade dos Campos no Arquivo Consolidado por Instruções
+        </h2>
         {uploadedTextFile !== '' ? (
           <table border={0}>
             <thead>
@@ -121,9 +122,9 @@ function ExampleComponent({ uploadedTextFile = '' }) {
                                   margin: '.2em .5em', // Adding some spacing between items
                                   padding: '2px 5px',
                                   display: 'inline-block',
-                                  borderRadius: '10px'
-                                }} 
-                                title={`Numero sequencial: ${index}` }
+                                  borderRadius: '10px',
+                                }}
+                                title={`Numero sequencial: ${index}`}
                               >
                                 {value}
                               </span>
@@ -147,4 +148,4 @@ function ExampleComponent({ uploadedTextFile = '' }) {
   );
 }
 
-export default ExampleComponent;
+export default ExtractFieldsFromLinesComponent;
