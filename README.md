@@ -1,8 +1,5 @@
-# React + Vite
+# Validador de arquivos fiscais em texto 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/matefs/validador-de-arquivo-fiscal/assets/30128774/c3aa7d72-0359-4bed-ba94-388371f585f2)
+![image](https://github.com/matefs/validador-de-arquivo-fiscal/assets/30128774/cc15fe57-846e-4468-a0ab-0f164cc06125)
+![image](https://github.com/matefs/validador-de-arquivo-fiscal/assets/30128774/db830857-4ca9-4035-85b9-0b345cbb5b9d)
