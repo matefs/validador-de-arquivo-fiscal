@@ -1,29 +1,14 @@
 import React, { useState, useEffect } from 'react';
+ 
+import { Typography, Card } from 'antd';
+const { Title } = Typography;
 
-function ExtractFieldsFromLinesComponent({ uploadedTextFile = '' }) {
-  const [lineInstructions, setLineInstructions] = useState([
-    {
-      startLine: 1,
-      endLine: 1,
-      fields: [
-        { name: 'Company Name', startPos: 1, endPos: 27 },
-        { name: 'Fiscal Year', startPos: 28, endPos: 31 },
-      ],
-    },
-    {
-      startLine: 2,
-      endLine: 10,
-      fields: [
-        { name: 'Campo 1 ao 8', startPos: 1, endPos: 8 },
-        { name: 'Another Field', startPos: 8, endPos: 28 },
-      ],
-    },
-  ]);
 
+function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile=''}) {
+ 
   const [extractedData, setExtractedData] = useState([]);
 
-  useEffect(() => {
-    // Function to extract fields based on line instructions
+  // Function to extract fields based on line instructions
     function extractFieldsFromLine(lineNumber, line) {
       const extractedFields = [];
       lineInstructions.forEach((instruction) => {
@@ -42,6 +27,8 @@ function ExtractFieldsFromLinesComponent({ uploadedTextFile = '' }) {
       });
       return extractedFields;
     }
+
+  useEffect(() => {
 
     // Process the tax file data
     const lines = uploadedTextFile.split('\n');
@@ -66,10 +53,10 @@ function ExtractFieldsFromLinesComponent({ uploadedTextFile = '' }) {
 
   return (
     <div>
-      <div>
-        <h2>
+      <Card>
+        <Title>
           Verifique a Validade dos Campos no Arquivo Consolidado por Instruções
-        </h2>
+        </Title>
         {uploadedTextFile !== '' ? (
           <table border={0}>
             <thead>
@@ -92,6 +79,7 @@ function ExtractFieldsFromLinesComponent({ uploadedTextFile = '' }) {
                       </strong>
                     </td>
                   </tr>
+
                   {instruction.fields.map((field, fieldIndex) => (
                     <tr key={fieldIndex}>
                       <td style={{ padding: '20px' }}>{field.name}</td>
@@ -133,8 +121,11 @@ function ExtractFieldsFromLinesComponent({ uploadedTextFile = '' }) {
                         ) : (
                           'N/A'
                         )}
-                      </td>
+ 
+                  </td>
+ 
                     </tr>
+ 
                   ))}
                 </React.Fragment>
               ))}
@@ -143,7 +134,7 @@ function ExtractFieldsFromLinesComponent({ uploadedTextFile = '' }) {
         ) : (
           ''
         )}
-      </div>
+      </Card>
     </div>
   );
 }
