@@ -1,7 +1,7 @@
  
 # **Validador de Arquivo Fiscal**
 
-Bem-vindo ao repositório do Validador de Arquivo Fiscal! Este projeto é uma ferramenta útil para validar arquivos de remessa utilizados pelos bancos brasileiros e arquivos fiscais de registro de jornada, como AEJ, AFD e AFDT. Basicamente, ele ajuda a validar qualquer arquivo baseado em texto de acordo com as especificações de formato e conteúdo.
+Bem-vindo ao repositório do Validador de Arquivo Fiscal! Este projeto é uma ferramenta útil para validar arquivos de remessa utilizados pelos bancos brasileiros, incluindo os formatos CNAB 240 e CNAB 400, além de arquivos fiscais de registro de jornada, como AEJ, AFD e AFDT. Basicamente, ele ajuda a validar qualquer arquivo baseado em texto de acordo com as especificações de formato e conteúdo.
 
 ![image](https://github.com/matefs/validador-de-arquivo-fiscal/assets/30128774/c3aa7d72-0359-4bed-ba94-388371f585f2) 
 
