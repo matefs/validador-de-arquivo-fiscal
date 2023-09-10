@@ -1,5 +1,4 @@
- # Validador arquivos fiscais
-
+ 
 # **Validador de Arquivo Fiscal**
 
 Bem-vindo ao repositório do Validador de Arquivo Fiscal! Este projeto é uma ferramenta útil para validar arquivos de remessa utilizados pelos bancos brasileiros e arquivos fiscais de registro de jornada, como AEJ, AFD e AFDT. Basicamente, ele ajuda a validar qualquer arquivo baseado em texto de acordo com as especificações de formato e conteúdo.
