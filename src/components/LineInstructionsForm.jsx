@@ -66,7 +66,7 @@ function LineInstructionsForm({ lineInstructions, setLineInstructions }) {
       endLine: values.endLine,
       fields: [],
     };
-    addLine(newLine);;
+    addLine(newLine);
     setStart('');
     setEndLine('');
     addNewLineEmptyWithFieldsForm.resetFields();
@@ -119,14 +119,20 @@ const handleFieldInitialFinalPosition = (event) => {
 
 
   return (
-    <Card>
-
+<Card   style={{
+    position: 'fixed',
+    overflowY: 'auto',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  }}>
 {/* <pre style={{ position: 'fixed', top: '10px', right: '10px', textShadow: '1px 1px white', zIndex: 999, maxHeight: '80vh', overflow: 'auto' }}>
   {JSON.stringify(lineInstructions, null, 2)}
 </pre>
  */}
 
-<div >
+<div  >
         <h1>Adicionar nova linha</h1>
         <Form
           form={addNewLineEmptyWithFieldsForm}

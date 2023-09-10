@@ -3,6 +3,7 @@ import './App.css';
 import ExtractFieldsFromLinesComponent from './components/ExtractFieldsFromLinesComponent';
 import UploadForm from './components/UploadForm';
 import LineInstructionsForm from './components/LineInstructionsForm';
+import {FloatButton } from 'antd'
 
 function App() {
   const [uploadedTextFile, setUploadedTextFile] = useState();
@@ -39,6 +40,7 @@ function App() {
         uploadedTextFile={uploadedTextFile}
         setUploadedTextFile={setUploadedTextFile} 
       />
+      <FloatButton onClick={() => {setShowLineInstructionsFormBoolean(!showLineInstructionsFormBoolean)}}/>
       {showLineInstructionsFormBoolean && <LineInstructionsForm lineInstructions={lineInstructions}  setLineInstructions={setLineInstructions} />}
     </div>
   );
