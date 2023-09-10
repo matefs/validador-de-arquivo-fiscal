@@ -2,9 +2,12 @@ import { useState } from 'react';
 import './App.css';
 import ExtractFieldsFromLinesComponent from './components/ExtractFieldsFromLinesComponent';
 import UploadForm from './components/UploadForm';
+import LineInstructionsForm from './components/LineInstructionsForm';
 
 function App() {
   const [uploadedTextFile, setUploadedTextFile] = useState();
+  const [showLineInstructionsFormBoolean, setShowLineInstructionsFormBoolean] = useState(false)
+
   const [lineInstructions, setLineInstructions] = useState([
     {
       startLine: 1,
@@ -36,6 +39,7 @@ function App() {
         uploadedTextFile={uploadedTextFile}
         setUploadedTextFile={setUploadedTextFile} 
       />
+      {showLineInstructionsFormBoolean && <LineInstructionsForm lineInstructions={lineInstructions}  setLineInstructions={setLineInstructions} />}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
- 
+import LineInstructionsForm from './LineInstructionsForm';
 import { Typography, Card } from 'antd';
 const { Title } = Typography;
 
@@ -7,6 +7,7 @@ const { Title } = Typography;
 function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile=''}) {
  
   const [extractedData, setExtractedData] = useState([]);
+  const [showLineInstructionsFormBoolean, setShowLineInstructionsFormBoolean] = useState(false)
 
   // Function to extract fields based on line instructions
     function extractFieldsFromLine(lineNumber, line) {
@@ -58,7 +59,7 @@ function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile
           Verifique a Validade dos Campos no Arquivo Consolidado por Instruções
         </Title>
         {uploadedTextFile !== '' ? (
-          <table border={0}>
+          <table border={0} style={{minWidth: '80vw'}}>
             <thead>
               <tr>
                 <th>Instrução</th>
@@ -135,6 +136,7 @@ function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile
           ''
         )}
       </Card>
+
     </div>
   );
 }

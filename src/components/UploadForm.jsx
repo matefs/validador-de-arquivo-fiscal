@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card, Upload} from 'antd';
 
 export default function UploadForm({ uploadedTextFile, setUploadedTextFile }) {
   function carregarArquivoTexto(event) {
@@ -15,13 +16,13 @@ export default function UploadForm({ uploadedTextFile, setUploadedTextFile }) {
   }
 
   return (
-    <>
+    <Card> 
       <input
         type="file"
         id="inputArquivo"
         onChange={carregarArquivoTexto}
         style={{ padding: '3%' }}
       />
-    </>
+    </Card>
   );
 }
