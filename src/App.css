@@ -48,21 +48,23 @@
 /* Estilização básica do input[type="file"] */
 input[type='file'] {
   background-color: transparent;
+  border-style: dashed;
   border: 1px solid #007bff; /* Cor da borda azul */
   border-radius: 18px; /* Borda arredondada */
   padding: 1px;
   cursor: pointer;
   outline: none; /* Remover a borda de foco padrão */
   width: 53%;  
+  border-style: dashed;
 }
 
 /* Estilização do botão de upload específico para o Chrome */
-input[type="file" i]::-webkit-file-upload-button {
-  background-color: #007bff; /* Cor de fundo azul */
-  color: #fff; /* Cor do texto branco */
+input[type="file" i]::-webkit-file-upload-button { 
+  color: black; /* Cor do texto branco */
   padding: 10px 15px; /* Espaçamento interno */
-  border: none; /* Remover a borda */
-  border-radius: 15px; /* Borda arredondada */
-  cursor: pointer;
-  font-weight: bold; 
+  border: 1px solid grey; /* Remover a borda */
+  border-radius: 10px; /* Borda arredondada */
+  margin-right: 1%;
+  cursor: pointer; 
+  background-color: transparent;
 }
