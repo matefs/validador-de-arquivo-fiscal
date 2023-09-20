@@ -60,16 +60,24 @@ function LineInstructionsForm({ lineInstructions, setLineInstructions }) {
   };
 
   const handleSubmit = (values) => {
-//    event.preventDefault();
-    const newLine = {
+
+    if(values.startLine == 0 || values.endLine  == 0 ){
+      alert('A linha inicial ou final não pode ser igual a 0')
+    }else{
+      
+      const newLine = {
       startLine: values.startLine,
       endLine: values.endLine,
       fields: [],
-    };
-    addLine(newLine);
-    setStart('');
-    setEndLine('');
-    addNewLineEmptyWithFieldsForm.resetFields();
+     };
+
+      addLine(newLine);
+      setStart('');
+      setEndLine('');
+      addNewLineEmptyWithFieldsForm.resetFields();
+
+    }
+
   };
  
 const handleFieldInitialFinalPosition = (event) => {
@@ -87,6 +95,7 @@ const handleFieldInitialFinalPosition = (event) => {
     updatedInstructions[indiceLinha].fields[indiceCampo].name;
 
   updatedInstructions[indiceLinha].fields.forEach((InteractedField) => {
+
     /* Valida se em outros campos dessa mesma linha já existe essa posição inicial e final  */
     if (InteractedField.name !== nomeCampoIndividual) {
       if (
@@ -98,7 +107,9 @@ const handleFieldInitialFinalPosition = (event) => {
         );
         impedirSalvamento = true;
       }
+
     }
+
   });
 
   if (posicaoInicial > posicaoFinal) {
