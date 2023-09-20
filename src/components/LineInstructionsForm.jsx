@@ -75,6 +75,8 @@ function LineInstructionsForm({ lineInstructions, setLineInstructions }) {
 const handleFieldInitialFinalPosition = (event) => {
   event.preventDefault();
 
+  let impedirSalvamento = false;
+
   let posicaoInicial = Number(event.target[0].value);
   let posicaoFinal = Number(event.target[1].value);
   let indiceLinha = Number(event.target[2].value);
@@ -83,8 +85,6 @@ const handleFieldInitialFinalPosition = (event) => {
   const updatedInstructions = [...lineInstructions];
   let nomeCampoIndividual =
     updatedInstructions[indiceLinha].fields[indiceCampo].name;
-
-  let impedirSalvamento = false;
 
   updatedInstructions[indiceLinha].fields.forEach((InteractedField) => {
     /* Valida se em outros campos dessa mesma linha já existe essa posição inicial e final  */
@@ -104,6 +104,11 @@ const handleFieldInitialFinalPosition = (event) => {
   if (posicaoInicial > posicaoFinal) {
     alert('A posição inicial não pode ser maior do que a final');
     impedirSalvamento = true;
+  }
+
+  if(posicaoInicial == 0  || posicaoFinal == 0 ){
+    impedirSalvamento = true;
+    alert('Posição inicial/final não pode ser 0')
   }
 
   if (impedirSalvamento) {
