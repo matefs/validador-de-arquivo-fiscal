@@ -60,7 +60,7 @@ function ExtractFieldsFromLinesComponent({
           Verifique a Validade dos Campos no Arquivo Consolidado por Instruções
         </Title>
         {uploadedTextFile !== "" ? (
-          <table border={0} style={{ minWidth: "100%" }}>
+          <table border={0} style={{ minWidth: "100%" , fontSize:'1.2em'}}>
             <thead>
               <tr>
                 <th>Instrução</th>
