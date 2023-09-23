@@ -60,7 +60,7 @@ function ExtractFieldsFromLinesComponent({
           Verifique a Validade dos Campos no Arquivo Consolidado por Instruções
         </Title>
         {uploadedTextFile !== "" ? (
-          <table border={0} style={{ minWidth: "100%" , fontSize:'1.2em'}}>
+          <table border={0} style={{ minWidth: "100%", fontSize: "1.2em" }}>
             <thead>
               <tr>
                 <th>Instrução</th>
@@ -105,7 +105,18 @@ function ExtractFieldsFromLinesComponent({
                                 }}
                                 title={`Numero sequencial: ${index}`}
                               >
-                                {value}
+
+                                {value.trim().length > 1 ? (
+                                  value
+                                ) : (
+                                  <p
+                                    title={`Esse está com espaços em branco: '\t' `}
+                                    style={{ color: "red" }}
+                                  >
+                                    [ Campo vazio ]
+                                  </p>
+                                )}
+
                               </span>
                             ))}
                           </span>
@@ -119,7 +130,10 @@ function ExtractFieldsFromLinesComponent({
                   <tr>
                     <td
                       colSpan={3}
-                      style={{ backgroundColor: "rgba(255,255,255,.1)", height: '8em' }}
+                      style={{
+                        backgroundColor: "rgba(255,255,255,.1)",
+                        height: "8em",
+                      }}
                     >
                       <strong>
                         Linhas {instruction.startLine}-{instruction.endLine}
@@ -135,7 +149,6 @@ function ExtractFieldsFromLinesComponent({
                           padding: "0",
                         }}
                       ></hr>
-
                     </td>
                   </tr>
                 </React.Fragment>
