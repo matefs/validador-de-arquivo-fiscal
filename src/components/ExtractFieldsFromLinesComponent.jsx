@@ -1,38 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import LineInstructionsForm from './LineInstructionsForm';
-import { Typography, Card } from 'antd';
+import React, { useState, useEffect } from "react";
+import LineInstructionsForm from "./LineInstructionsForm";
+import { Typography, Card } from "antd";
 const { Title } = Typography;
 
-
-function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile=''}) {
- 
+function ExtractFieldsFromLinesComponent({
+  lineInstructions = {},
+  uploadedTextFile = "",
+}) {
   const [extractedData, setExtractedData] = useState([]);
-  const [showLineInstructionsFormBoolean, setShowLineInstructionsFormBoolean] = useState(false)
+  const [showLineInstructionsFormBoolean, setShowLineInstructionsFormBoolean] =
+    useState(false);
 
   // Function to extract fields based on line instructions
-    function extractFieldsFromLine(lineNumber, line) {
-      const extractedFields = [];
-      lineInstructions.forEach((instruction) => {
-        if (
-          lineNumber >= instruction.startLine &&
-          lineNumber <= instruction.endLine
-        ) {
-          instruction.fields.forEach((field) => {
-            const fieldValue = line.slice(field.startPos - 1, field.endPos);
-            extractedFields.push({
-              name: field.name,
-              value: fieldValue,
-            });
+  function extractFieldsFromLine(lineNumber, line) {
+    const extractedFields = [];
+    lineInstructions.forEach((instruction) => {
+      if (
+        lineNumber >= instruction.startLine &&
+        lineNumber <= instruction.endLine
+      ) {
+        instruction.fields.forEach((field) => {
+          const fieldValue = line.slice(field.startPos - 1, field.endPos);
+          extractedFields.push({
+            name: field.name,
+            value: fieldValue,
           });
-        }
-      });
-      return extractedFields;
-    }
+        });
+      }
+    });
+    return extractedFields;
+  }
 
   useEffect(() => {
-
     // Process the tax file data
-    const lines = uploadedTextFile.split('\n');
+    const lines = uploadedTextFile.split("\n");
     const extractedData = lines.map((line, index) => {
       return extractFieldsFromLine(index + 1, line);
     });
@@ -58,42 +59,31 @@ function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile
         <Title>
           Verifique a Validade dos Campos no Arquivo Consolidado por Instruções
         </Title>
-        {uploadedTextFile !== '' ? (
-          <table border={0} style={{minWidth: '100%'}}>
+        {uploadedTextFile !== "" ? (
+          <table border={0} style={{ minWidth: "100%" }}>
             <thead>
               <tr>
                 <th>Instrução</th>
                 <th>Posicões</th>
-                <th>Campo</th>
+                <th>Campos</th>
               </tr>
             </thead>
             <tbody>
               {lineInstructions.map((instruction, index) => (
                 <React.Fragment key={index}>
-                  <tr>
-                    <td
-                      colSpan={3}
-                      style={{ backgroundColor: 'rgba(255,255,255,.1)' }}
-                    >
-                      <strong>
-                        Linhas {instruction.startLine}-{instruction.endLine}
-                      </strong>
-                    </td>
-                  </tr>
-
                   {instruction.fields.map((field, fieldIndex) => (
                     <tr key={fieldIndex}>
-                      <td style={{ padding: '20px' }}>{field.name}</td>
+                      <td style={{ padding: "20px" }}>{field.name}</td>
                       <td>
                         {field.startPos} até {field.endPos}
                       </td>
                       <td
                         style={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.00)',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          marginTop: '2%',
-                          borderCollapse: 'separate',
+                          backgroundColor: "rgba(255, 255, 255, 0.00)",
+                          display: "flex",
+                          flexDirection: "column",
+                          marginTop: "2%",
+                          borderCollapse: "separate",
                           borderSpacing: 0,
                         }}
                       >
@@ -108,10 +98,10 @@ function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile
                                   )}, ${
                                     index * Math.floor(Math.random() * 100)
                                   }, 255,0.06)`, // Adjust color generation as needed
-                                  margin: '.2em .5em', // Adding some spacing between items
-                                  padding: '2px 5px',
-                                  display: 'inline-block',
-                                  borderRadius: '10px',
+                                  margin: ".2em .5em", // Adding some spacing between items
+                                  padding: "2px 5px",
+                                  display: "inline-block",
+                                  borderRadius: "10px",
                                 }}
                                 title={`Numero sequencial: ${index}`}
                               >
@@ -120,23 +110,42 @@ function ExtractFieldsFromLinesComponent({ lineInstructions={}, uploadedTextFile
                             ))}
                           </span>
                         ) : (
-                          'N/A'
+                          "N/A"
                         )}
- 
-                  </td>
- 
+                      </td>
                     </tr>
- 
                   ))}
+
+                  <tr>
+                    <td
+                      colSpan={3}
+                      style={{ backgroundColor: "rgba(255,255,255,.1)", height: '8em' }}
+                    >
+                      <strong>
+                        Linhas {instruction.startLine}-{instruction.endLine}
+                      </strong>
+
+                      <hr
+                        style={{
+                          display: "block",
+                          height: "1px",
+                          border: "0",
+                          borderTop: "1px solid rgba(0,0,0,.08)",
+                          margin: "1em 0",
+                          padding: "0",
+                        }}
+                      ></hr>
+
+                    </td>
+                  </tr>
                 </React.Fragment>
               ))}
             </tbody>
           </table>
         ) : (
-          ''
+          ""
         )}
       </Card>
-
     </div>
   );
 }
