@@ -14,8 +14,8 @@ function App() {
       startLine: 1,
       endLine: 1,
       fields: [
-        { name: 'Company Name', startPos: 1, endPos: 27 },
-        { name: 'Fiscal Year', startPos: 28, endPos: 31 },
+        { name: 'Nome da empresa', startPos: 1, endPos: 27 },
+        { name: 'Ano atual', startPos: 28, endPos: 31 },
       ],
     },
     {
@@ -23,7 +23,7 @@ function App() {
       endLine: 10,
       fields: [
         { name: 'Campo 1 ao 8', startPos: 1, endPos: 8 },
-        { name: 'Another Field', startPos: 8, endPos: 28 },
+        { name: 'Outro campo', startPos: 8, endPos: 28 },
       ],
     },
   ]);
