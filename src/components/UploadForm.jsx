@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card} from 'antd';
+import { Card } from 'antd';
 
 export default function UploadForm({ uploadedTextFile, setUploadedTextFile }) {
   function carregarArquivoTexto(event) {
