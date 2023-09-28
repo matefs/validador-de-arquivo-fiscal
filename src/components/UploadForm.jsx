@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card} from 'antd';
+import React from "react";
+import { Card } from "antd";
 
 export default function UploadForm({ uploadedTextFile, setUploadedTextFile }) {
   function carregarArquivoTexto(event) {
@@ -16,12 +16,12 @@ export default function UploadForm({ uploadedTextFile, setUploadedTextFile }) {
   }
 
   return (
-    <Card> 
+    <Card>
       <input
         type="file"
         id="inputArquivo"
         onChange={carregarArquivoTexto}
-        style={{ padding: '3%' }}
+        style={{ padding: "3%" }}
       />
     </Card>
   );
