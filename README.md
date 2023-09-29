@@ -42,14 +42,16 @@ Para utilizar o Validador de Arquivo Fiscal localmente ou incorporá-lo em seu p
     
 5. O aplicativo estará disponível em seu navegador em **[http://localhost:3000](http://localhost:3000/)**.
 
-6. Tutorial sobre a utilização, como configurar linhas e posições: [https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz](https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz)
-
 
 ## **Funcionalidades Principais**
 
 - **Validação de Arquivos**: A ferramenta permite validar arquivos de remessa bancária e arquivos fiscais, verificando se eles estão em conformidade com as especificações de formato e conteúdo.
 - **Interface Amigável**: A interface do usuário foi projetada para ser amigável e fácil de usar, tornando a validação de arquivos uma tarefa simples.
 - **Acesso Online**: Você pode acessar o Validador de Arquivo Fiscal online em **[https://validador-arquivos-fiscais.netlify.app/](https://validador-arquivos-fiscais.netlify.app/)** para conveniência.
+- Tutorial sobre a utilização, como configurar linhas e posições: [https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz](https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz)
+
+
+
 
 ## **Contribuição**
 
