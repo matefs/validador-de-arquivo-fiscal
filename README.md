@@ -10,6 +10,8 @@ Bem-vindo ao repositório do Validador de Arquivo Fiscal! Este projeto é uma fe
 
 Você pode acessar a versão online desta ferramenta em: **[Validador de Arquivos Fiscais Online](https://validador-arquivos-fiscais.netlify.app/)**
 
+
+
 ## **Como Usar**
 
 Para utilizar o Validador de Arquivo Fiscal localmente ou incorporá-lo em seu próprio projeto, siga as etapas abaixo:
@@ -39,6 +41,9 @@ Para utilizar o Validador de Arquivo Fiscal localmente ou incorporá-lo em seu p
     ```
     
 5. O aplicativo estará disponível em seu navegador em **[http://localhost:3000](http://localhost:3000/)**.
+
+6. Tutorial sobre a utilização, como configurar linhas e posições: [https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz](https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz)
+
 
 ## **Funcionalidades Principais**
 
