@@ -3,10 +3,8 @@ import "./App.css";
 import ExtractFieldsFromLinesComponent from "./components/ExtractFieldsFromLinesComponent";
 import UploadForm from "./components/UploadForm";
 import LineInstructionsForm from "./components/LineInstructionsForm";
-import { FloatButton,  Modal } from "antd";
-import {  QuestionOutlined } from '@ant-design/icons';
-
-
+import { FloatButton, Modal } from "antd";
+import { QuestionOutlined } from "@ant-design/icons";
 
 function App() {
   const [uploadedTextFile, setUploadedTextFile] = useState();
@@ -55,27 +53,24 @@ function App() {
         setUploadedTextFile={setUploadedTextFile}
       />
 
+      <FloatButton.Group>
+        <FloatButton
+          onClick={() => {
+            setShowLineInstructionsFormBoolean(
+              !showLineInstructionsFormBoolean
+            );
+            showModal();
+          }}
+        />
 
-            <FloatButton.Group>
-            
-                  <FloatButton
-        onClick={() => {
-          setShowLineInstructionsFormBoolean(!showLineInstructionsFormBoolean);
-          showModal();
-        }}
-      />
-
-      <FloatButton
-        onClick={() => {
-        
-        window.location.href = 'https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz';
-
-       }}
-        icon={<QuestionOutlined />}
-      />
-        </FloatButton.Group>
-
-
+        <FloatButton
+          onClick={() => {
+            window.location.href =
+              "https://www.linkedin.com/pulse/validador-de-arquivos-cnab-240-400-e-fiscais-online-mateus-schverz";
+          }}
+          icon={<QuestionOutlined />}
+        />
+      </FloatButton.Group>
 
       <Modal
         title="Editar intruções do arquivo"
