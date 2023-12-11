@@ -31,8 +31,8 @@ function LineInstructionsForm({ lineInstructions, setLineInstructions }) {
   };
 
   const addLine = (newLine) => {
-    newLine.startLine = Number(newLine.startLine);
-    newLine.endLine = Number(newLine.endLine);
+    newLine.startLine = parseInt(newLine.startLine);
+    newLine.endLine = parseInt(newLine.endLine);
 
     // Verificar se já existe um startLine e endLine iguais aos que estão sendo adicionados
     const lineExists = lineInstructions.some((line) => {
@@ -82,10 +82,10 @@ function LineInstructionsForm({ lineInstructions, setLineInstructions }) {
 
     let impedirSalvamento = false;
 
-    let posicaoInicial = Number(event.target[0].value);
-    let posicaoFinal = Number(event.target[1].value);
-    let indiceLinha = Number(event.target[2].value);
-    let indiceCampo = Number(event.target[3].value);
+    let posicaoInicial = parseInt(event.target[0].value);
+    let posicaoFinal = parseInt(event.target[1].value);
+    let indiceLinha = parseInt(event.target[2].value);
+    let indiceCampo = parseInt(event.target[3].value);
 
     const updatedInstructions = [...lineInstructions];
     let nomeCampoIndividual =
