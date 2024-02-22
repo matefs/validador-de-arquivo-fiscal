@@ -11,6 +11,10 @@ Bem-vindo ao repositório do Validador de Arquivo Fiscal! Este projeto é uma fe
 Você pode acessar a versão online desta ferramenta em: **[Validador de Arquivos Fiscais Online](https://validador-arquivos-fiscais.netlify.app/)**
 
 
+### Funcionamento: 
+![Group 11](https://github.com/matefs/validador-de-arquivo-fiscal/assets/30128774/2a433cb0-1e58-4ec1-8262-7d8be9e48900)
+
+
 
 ## **Como Usar**
 
